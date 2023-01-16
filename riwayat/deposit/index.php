@@ -215,18 +215,18 @@ if (isset($_SESSION['user'])) {
                             
                             <td>
                                 <?php
-                                                    if ($data_order['status'] == "Expired") { ?>
-                                                        <button type="button" disabled="true" class="btn btn-outline-secondary" onclick="showInstruction(<?php echo $data_order['id']; ?>)">
-                                                            <i class="icon light-info-text icon-eye-slash"></i> Cara Bayar
-                                                        </button>
-                                                    <?php
-                                                    } else { ?>
-                                                        <button type="button" class="btn btn-outline-info" onclick="showInstruction(<?php echo $data_order['id']; ?>)">
-                                                            <i class="icon light-info-text icon-eye"></i> Cara Bayar
-                                                        </button>
-                                                    <?php
-                                                    }
-                                                    ?>
+                                    if ($data_order['status'] == "Expired") { ?>
+                                        <button type="button" disabled="true" class="btn btn-outline-secondary" onclick="showInstruction(<?php echo $data_order['id']; ?>)">
+                                            <i class="icon light-info-text icon-eye-slash"></i> Cara Bayar
+                                        </button>
+                                    <?php
+                                    } else { ?>
+                                        <button type="button" class="btn btn-outline-info" onclick="showInstruction(<?php echo $data_order['id']; ?>)">
+                                            <i class="icon light-info-text icon-eye"></i> Cara Bayar
+                                        </button>
+                                    <?php
+                                    }
+                                ?>
                                 
                             </td>
                         </tr>
@@ -239,25 +239,25 @@ if (isset($_SESSION['user'])) {
             </div>
         </div>
 
-                <!-- Modal -->
-                    <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h2 class="modal-title" id="exampleModalLabel">Cara Pembayaran</h2>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div id="data" style="margin: 10px;"></div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">Cara Pembayaran</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        <div id="data" style="margin: 10px;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </section>
@@ -276,6 +276,7 @@ if (isset($_SESSION['user'])) {
             </footer>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="<?php echo $cfg_baseurl; ?>/assets/js/bootstrap.js"></script>
     <script src="<?php echo $cfg_baseurl; ?>/assets/js/app.js"></script>
     <script src="<?php echo $cfg_baseurl; ?>/assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
@@ -286,7 +287,7 @@ if (isset($_SESSION['user'])) {
                 document.getElementById("data").innerHTML = "";
                 return;
             } else {
-                $('#instructionsModal').modal()
+                $('#instructionsModal').modal('show');
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {

@@ -178,7 +178,7 @@ if ($cfg_mt == 1) {
             </header>
             
 <div class="page-heading">
-    <h3>Profile Statistics</h3>
+    <h3>Dashboard</h3>
 </div>
 <div class="page-content">
     <section class="row">
@@ -190,7 +190,7 @@ if ($cfg_mt == 1) {
                             <div class="row">
                                 <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
                                     <div class="stats-icon purple mb-2">
-                                        <i class="bi bi-wallet"></i>
+                                        <i class="iconly-boldWallet"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
@@ -228,7 +228,7 @@ if ($cfg_mt == 1) {
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Sisa Saldo</h6>
+                                    <h6 class="text-muted font-semibold">Saldo Utama</h6>
                                     <?php
                                         if ($data_user['balance'] == "0" or $data_user['balance'] < 0) {
                                         ?>
@@ -256,7 +256,7 @@ if ($cfg_mt == 1) {
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                    <h6 class="text-muted font-semibold">Pengeluaran Sekarang</h6>
+                                    <h6 class="text-muted font-semibold">Harian</h6>
                                     <h6 class="font-extrabold mb-0"><?php echo rupiah($data_order_today['total']); ?></h6>
                                 </div>
                             </div>
