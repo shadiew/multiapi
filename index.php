@@ -84,6 +84,8 @@ if ($cfg_mt == 1) {
     <link rel="shortcut icon" href="<?php echo $data_settings['link_fav']; ?>" type="image/png">
     
     <link rel="stylesheet" href="<?php echo $cfg_baseurl; ?>/assets/css/shared/iconly.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
 </head>
 
@@ -268,78 +270,104 @@ if ($cfg_mt == 1) {
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Profile Visit</h4>
+                            <h4>Grafik Pemesanan</h4>
                         </div>
                         <div class="card-body">
-                            <div id="chart-profile-visit"></div>
+                            <div class="col-md-12 " >
+                            <canvas id="myChart" height="250"></canvas>
+                                            <script>
+                                                var ctx = document.getElementById('myChart');
+                                                var myChart = new Chart(ctx, {
+                                                    type: 'line',
+                                                    data: {
+                                                        labels: ['<?php echo $date_1; ?>', '<?php echo $date_2; ?>', '<?php echo $date_3; ?>', '<?php echo $date_4; ?>', '<?php echo $date_5; ?>', '<?php echo $date_6; ?>'],
+                                                        datasets: [{
+                                                                label: 'Completed',
+                                                                fill: true,
+                                                                data: [<?php echo $count_c_date_1; ?>, <?php echo $count_c_date_2; ?>, <?php echo $count_c_date_3; ?>, <?php echo $count_c_date_4; ?>, <?php echo $count_c_date_5; ?>, <?php echo $count_c_date_6; ?>],
+                                                                backgroundColor: 'rgba(50,141,255,.2)',
+                                                                borderColor: '#328dff',
+                                                                pointBorderColor: '#328dff',
+                                                                pointBackgroundColor: '#fff',
+                                                                pointBorderWidth: 2,
+                                                                borderWidth: 1,
+                                                                borderJoinStyle: 'miter',
+                                                                pointHoverBackgroundColor: '#328dff',
+                                                                pointHoverBorderColor: '#328dff',
+                                                                pointHoverBorderWidth: 1,
+                                                                pointRadius: 3,
+
+                                                            },
+                                                            {
+                                                                label: 'Not Completed',
+                                                                fill: false,
+                                                                data: [<?php echo $count_p_date_1; ?>, <?php echo $count_p_date_2; ?>, <?php echo $count_p_date_3; ?>, <?php echo $count_p_date_4; ?>, <?php echo $count_p_date_5; ?>, <?php echo $count_p_date_6; ?>],
+                                                                borderDash: [5, 5],
+                                                                backgroundColor: 'rgba(87,115,238,.3)',
+                                                                borderColor: '#2979ff',
+                                                                pointBorderColor: '#2979ff',
+                                                                pointBackgroundColor: '#2979ff',
+                                                                pointBorderWidth: 2,
+
+                                                                borderWidth: 1,
+                                                                borderJoinStyle: 'miter',
+                                                                pointHoverBackgroundColor: '#2979ff',
+                                                                pointHoverBorderColor: '#fff',
+                                                                pointHoverBorderWidth: 1,
+                                                                pointRadius: 3,
+
+                                                            }
+                                                        ]
+                                                    },
+                                                    options: {
+                                                        maintainAspectRatio: false,
+                                                        legend: {
+                                                            display: true
+                                                        },
+
+                                                        scales: {
+                                                            xAxes: [{
+                                                                display: true,
+                                                                gridLines: {
+                                                                    zeroLineColor: '#eee',
+                                                                    color: '#eee',
+
+                                                                    borderDash: [5, 5],
+                                                                }
+                                                            }],
+                                                            yAxes: [{
+                                                                display: true,
+                                                                gridLines: {
+                                                                    zeroLineColor: '#eee',
+                                                                    color: '#eee',
+                                                                    borderDash: [5, 5],
+                                                                }
+                                                            }]
+
+                                                        },
+                                                        elements: {
+                                                            line: {
+
+                                                                tension: 0.4,
+                                                                borderWidth: 1
+                                                            },
+                                                            point: {
+                                                                radius: 2,
+                                                                hitRadius: 10,
+                                                                hoverRadius: 6,
+                                                                borderWidth: 4
+                                                            }
+                                                        }
+                                                    }
+                                                });
+                                            </script>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-xl-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Profile Visit</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <svg class="bi text-primary" width="32" height="32" fill="blue"
-                                            style="width:10px">
-                                            <use
-                                                xlink:href="<?php echo $cfg_baseurl; ?>/assets/images/bootstrap-icons.svg#circle-fill" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">Europe</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">862</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-europe"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <svg class="bi text-success" width="32" height="32" fill="blue"
-                                            style="width:10px">
-                                            <use
-                                                xlink:href="<?php echo $cfg_baseurl; ?>/assets/images/bootstrap-icons.svg#circle-fill" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">America</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">375</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-america"></div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <svg class="bi text-danger" width="32" height="32" fill="blue"
-                                            style="width:10px">
-                                            <use
-                                                xlink:href="<?php echo $cfg_baseurl; ?>/assets/images/bootstrap-icons.svg#circle-fill" />
-                                        </svg>
-                                        <h5 class="mb-0 ms-3">Indonesia</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="mb-0">1025</h5>
-                                </div>
-                                <div class="col-12">
-                                    <div id="chart-indonesia"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col-12 col-xl-8">
                     <div class="card">
                         <div class="card-header">
@@ -441,14 +469,7 @@ if ($cfg_mt == 1) {
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <h4>Visitors Profile</h4>
-                </div>
-                <div class="card-body">
-                    <div id="chart-visitors-profile"></div>
-                </div>
-            </div>
+            
         </div>
     </section>
 </div>

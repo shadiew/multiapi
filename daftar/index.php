@@ -276,23 +276,23 @@ if (isset($_POST['signup'])) {
         <div class="col-lg-6 d-flex justify-content-center align-items-center min-vh-lg-100">
           <div class="w-100 content-space-t-4 content-space-t-lg-2 content-space-b-1" style="max-width: 25rem;">
             <!-- Form -->
-            <form class="js-validate needs-validation" novalidate>
+            <form class="js-validate needs-validation" method="POST">
               <div class="text-center">
                 <div class="mb-5">
-                  <h1 class="display-5">Create your account</h1>
-                  <p>Already have an account? <a class="link" href="../login">Sign in here</a></p>
+                  <h1 class="display-5">Buat Akun Baru</h1>
+                  <p>Sudah Punya akun? <a class="link" href="../login">Login disini</a></p>
                 </div>
               </div>
 
-              <label class="form-label" for="fullNameSrEmail">Full name</label>
+              <label class="form-label" for="fullNameSrEmail">Nama dan Username</label>
 
               <!-- Form -->
               <div class="row">
                 <div class="col-sm-6">
                   <!-- Form -->
                   <div class="mb-4">
-                    <input type="text" class="form-control form-control-lg" name="fullName" id="fullNameSrEmail" placeholder="Mark" aria-label="Mark" required>
-                    <span class="invalid-feedback">Please enter your first name.</span>
+                    <input type="text" class="form-control form-control-lg" name="name"  placeholder="Nama Lengkap" required>
+                    <span class="invalid-feedback">Buat Nama Lengkap Anda.</span>
                   </div>
                   <!-- End Form -->
                 </div>
@@ -300,8 +300,8 @@ if (isset($_POST['signup'])) {
                 <div class="col-sm-6">
                   <!-- Form -->
                   <div class="mb-4">
-                    <input type="text" class="form-control form-control-lg" placeholder="Williams" aria-label="Williams" required>
-                    <span class="invalid-feedback">Please enter your last name.</span>
+                    <input type="text" class="form-control form-control-lg" placeholder="Username" name="username" required>
+                    <span class="invalid-feedback">Buat Nama Username Kamu.</span>
                   </div>
                   <!-- End Form -->
                 </div>
@@ -310,9 +310,16 @@ if (isset($_POST['signup'])) {
 
               <!-- Form -->
               <div class="mb-4">
-                <label class="form-label" for="signupSrEmail">Your email</label>
-                <input type="email" class="form-control form-control-lg" name="email" id="signupSrEmail" placeholder="Markwilliams@site.com" aria-label="Markwilliams@site.com" required>
-                <span class="invalid-feedback">Please enter a valid email address.</span>
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control form-control-lg" name="email"  placeholder="Markwilliams@site.com"  required>
+                <span class="invalid-feedback">Masukan Email Kamu.</span>
+              </div>
+              <!-- End Form -->
+              <!-- Form -->
+              <div class="mb-4">
+                <label class="form-label">No Whatsapp</label>
+                <input type="number" class="form-control form-control-lg" name="nohp"  placeholder="08xxx"  required>
+                <span class="invalid-feedback">Masukan No. Whatsapp Kamu.</span>
               </div>
               <!-- End Form -->
 
