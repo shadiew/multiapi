@@ -6,59 +6,46 @@ $data_settings = mysqli_fetch_assoc($check_settings);
 $msg_type = "nothing";
 
 if (isset($_POST['signup'])) {
-  $post_email = htmlspecialchars(trim($_POST['email']));
-  $post_name = htmlspecialchars(trim($_POST['name']));
-  $post_username = htmlspecialchars(trim($_POST['username']));
-  $post_nohp = htmlspecialchars(trim($_POST['nohp']));
-  $post_password = htmlspecialchars(trim($_POST['password']));
-  $post_confirm = htmlspecialchars(trim($_POST['confirm']));
-
-  $check_user = mysqli_query($db, "SELECT * FROM users WHERE username = '$post_username'");
-  $check_email = mysqli_query($db, "SELECT * FROM users WHERE email = '$post_email'");
-  $check_nohp = mysqli_query($db, "SELECT * FROM users WHERE email = '$post_nohp'");
-  $ip = $_SERVER['REMOTE_ADDR'];
-  if (empty($post_email) || empty($post_username) || empty($post_name) || empty($post_nohp) || empty($post_password)) {
-    $msg_type = "error";
-    $msg_content = "Input To Fill All.";
-  } else if (mysqli_num_rows($check_email) > 0) {
-    $msg_type = "error";
-    $msg_content = "The Email You Enter is Registered.";
-  } else if (mysqli_num_rows($check_user) > 0) {
-    $msg_type = "error";
-    $msg_content = "The username you entered is already registered.";
-  } else if (strlen($post_password) < 5) {
-    $msg_type = "error";
-    $msg_content = "Minimum 5 characters password.";
-  } else if ($post_password <> $post_confirm) {
-    $msg_type = "error";
-    $msg_content = "Password is not the same.";
-  } else {
-    $post_apikey = random(20);
-    $post_kunci = random(5);
-    $ip = $_SERVER['REMOTE_ADDR'];
+	$post_email = htmlspecialchars(trim($_POST['email']));
+	$post_name = htmlspecialchars(trim($_POST['name']));
+	$post_username = htmlspecialchars(trim($_POST['username']));
+	$post_nohp = htmlspecialchars(trim($_POST['nohp']));
+	$post_password = htmlspecialchars(trim($_POST['password']));
+	$post_confirm = htmlspecialchars(trim($_POST['confirm']));
+		
+	$check_user = mysqli_query($db, "SELECT * FROM users WHERE username = '$post_username'");
+	$check_email = mysqli_query($db, "SELECT * FROM users WHERE email = '$post_email'");
+	$check_nohp = mysqli_query($db, "SELECT * FROM users WHERE email = '$post_nohp'");
+	$ip = $_SERVER['REMOTE_ADDR'];
+	if (empty($post_email) || empty($post_username) || empty($post_name) || empty($post_nohp) || empty($post_password)) {
+		$msg_type = "error";
+		$msg_content = "Mohon Input semua data.";
+	} else if (mysqli_num_rows($check_email) > 0) {
+		$msg_type = "error";
+		$msg_content = "The Email You Enter is Registered.";
+	} else if (mysqli_num_rows($check_user) > 0) {
+		$msg_type = "error";
+		$msg_content = "The username you entered is already registered.";
+	} else if (strlen($post_password) < 5) {
+		$msg_type = "error";
+		$msg_content = "Minimum 5 characters password.";
+	} else if ($post_password <> $post_confirm) {
+		$msg_type = "error";
+		$msg_content = "Password is not the same.";
+	} else {
+		$post_apikey = random(20);
+		$post_kunci = random(5);
+		$ip = $_SERVER['REMOTE_ADDR'];
     $hashed_password = password_hash($post_password, PASSWORD_DEFAULT);
-    $insert_user = mysqli_query($db, "INSERT INTO users (email, name, username, password, nohp, balance, level, registered, status, api_key, uplink, otp, point, ip) 
-    VALUES ('$post_email', '$post_name', '$post_username', '$hashed_password', '$post_nohp', '0', 'Member', '$date $time', 'Not Active', '$post_apikey', 'Server', '$post_kunci', '0', '$ip')");
-    if ($insert_user == true) {
-      $to = $post_email;
-      $msg = "<hr></hr><br>Hallo <b> $post_username </b>, Please use input this OTP to verify your account<br><br>OTP: <b>$post_kunci<b> <br><br><br><hr></hr><br>You cannot contact this Noreply message, Please Contact Admin Contact Through the Application or via Ticket. <br><br>Thanks.<br><hr></hr>";
-      $subject = "Verify Account";
-      $headers = "From: SMM PANEL <$email_webmail_forgot> \r\n";
-      $headers .= "Cc:$email_webmail_forgot \r\n";
-      $headers .= "MIME-Version: 1.0\r\n";
-      $headers .= "Content-type: text/html\r\n";
-      $send = mail($to, $subject, $msg, $headers);
-      if ($send == true) {
-        header("Location: $cfg_baseurl/aktivasi");
-      } else {
-        $msg_type = "error";
-        $msg_content = "<script>swal('Error!', 'Error system (1).', 'error');</script><b>Failed:</b> Error system (1).";
-      }
-    } else {
-      $msg_type = "error";
-      $msg_content = "A System Error Occurred.";
-    }
-  }
+		$insert_user = mysqli_query($db, "INSERT INTO users (email, name, username, password, nohp, balance, level, registered, status, api_key, uplink, otp, point, ip) VALUES ('$post_email', '$post_name', '$post_username', '$hashed_password', '$post_nohp', '0', 'Member', '$date $time', 'Active', '$post_apikey', 'Server', '$post_kunci', '0', '$ip')");
+		if ($insert_user == true) {
+			$msg_type = "success";
+			$msg_content = "Account Registered, Please Enter.";
+		} else {
+			$msg_type = "error";
+			$msg_content = "A System Error Occurred.";
+		}
+	}
 }
 
 ?>
