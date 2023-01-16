@@ -8,32 +8,28 @@ if (isset($_SESSION['user'])) {
     $check_user = mysqli_query($db, "SELECT * FROM users WHERE username = '$sess_username'");
     $data_user = mysqli_fetch_assoc($check_user);
     if (mysqli_num_rows($check_user) == 0) {
-        header("Location: ".$cfg_baseurl."/logout/");
+        header("Location: " . $cfg_baseurl . "/logout/");
     } else if ($data_user['status'] == "Suspended") {
-        header("Location: ".$cfg_baseurl."/logout/");
+        header("Location: " . $cfg_baseurl . "/logout/");
     } else if ($data_user['level'] != "Developers") {
-        header("Location: ".$cfg_baseurl);
+        header("Location: " . $cfg_baseurl);
     } else {
-        if (isset($_POST['delete'])) {
-            $post_username = $_POST['username'];
-            $checkdb_user = mysqli_query($db, "SELECT * FROM users WHERE username = '$post_username'");
-            if (mysqli_num_rows($checkdb_user) == 0) {
-                $msg_type = "error";
-                $msg_content = "User Cannot Be Found.";
-            } else {
-                $delete_user = mysqli_query($db, "DELETE FROM users WHERE username = '$post_username'");
-                if ($delete_user == TRUE) {
-                    $msg_type = "success";
-                    $msg_content = "User <b>$post_username</b> Deleted.";
-                }
+
+        $title = "Deposit List";
+        include("../../lib/header_admin.php");
+
+        if (isset($_GET['status'])) {
+            $status = $_GET['status'];
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
             }
         }
-    $title = "Users List";
-    include("../../lib/header_admin.php");
-    $check_wuser = mysqli_query($db, "SELECT SUM(balance) AS total FROM users");
-    $data_wuser = mysqli_fetch_assoc($check_wuser);
-    $check_wuser = mysqli_query($db, "SELECT * FROM users");
-    $count_wuser = mysqli_num_rows($check_wuser);
+
+        // widget
+        $check_worder = mysqli_query($db, "SELECT SUM(price) AS total FROM orders");
+        $data_worder = mysqli_fetch_assoc($check_worder);
+        $check_worder = mysqli_query($db, "SELECT * FROM orders");
+        $count_worder = mysqli_num_rows($check_worder);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +37,7 @@ if (isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $data_settings['web_name']; ?> | Data User</title>
+    <title><?php echo $data_settings['web_name']; ?> | Riwayat Deposit</title>
     
     <link rel="stylesheet" href="<?php echo $cfg_baseurl; ?>/assets/css/main/app.css">
     <link rel="stylesheet" href="<?php echo $cfg_baseurl; ?>/assets/css/main/app-dark.css">
@@ -189,14 +185,14 @@ if (isset($_SESSION['user'])) {
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Data User</h3>
+                <h3>Data Deposit</h3>
                 <p></p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?php echo $cfg_baseurl; ?>/admin">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Data User</li>
+                        <li class="breadcrumb-item active" aria-current="page">Data Deposit</li>
                     </ol>
                 </nav>
             </div>
@@ -205,30 +201,53 @@ if (isset($_SESSION['user'])) {
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Data User
+               Riwayat Deposit
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>City</th>
+                            <th>ID User</th>
+                            <th>No. Invoice</th>
+                            <th>Metode</th>
+                            <th>Jumlah</th>
+                            <th>Waktu</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                                            // start paging config
+                                            $query_list = mysqli_query($db, "SELECT * FROM deposits ORDER BY id DESC"); // edit
+                                            // end paging config
+                                            while ($data_show = mysqli_fetch_assoc($query_list)) {
+                                                if ($data_show['status'] == "Expired") {
+                                                    $status = "Expired";
+                                                    $label = "danger";
+                                                } else if ($data_show['status'] == "Error") {
+                                                    $status = "Error";
+                                                    $label = "danger";
+                                                } else if ($data_show['status'] == "Pending") {
+                                                    $status = "pending";
+                                                    $label = "info";    
+                                                } else if ($data_show['status'] == "Success") {
+                                                    $status = "Success";
+                                                    $label = "primary";
+                                                }
+                                            ?>
                         <tr>
-                            <td>Graiden</td>
-                            <td>vehicula.aliquet@semconsequat.co.uk</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
+                            <td><?php echo $data_show['user']; ?></td>
+                            <td><?php echo $data_show['invoice_number']; ?></td>
+                            <td><?php echo $data_show['code']; ?></td>
+                            <td><?php echo rupiah($data_show['balance']); ?></td>
+                            <td><?php echo $data_show['created_at']; ?></td>
                             <td>
-                                <span class="badge bg-success">Active</span>
+                                <span class="badge bg-<?php echo $label; ?>"><?php echo $data_show['status']; ?></span>
                             </td>
                         </tr>
-                        
+                        <?php
+                                            }
+                                            ?>
                     </tbody>
                 </table>
             </div>
