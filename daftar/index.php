@@ -348,7 +348,7 @@ if (isset($_POST['signup'])) {
                 <label class="form-label" for="signupSrConfirmPassword">Confirm password</label>
 
                 <div class="input-group input-group-merge" data-hs-validation-validate-class>
-                  <input type="password" class="js-toggle-password form-control form-control-lg" name="confirmPassword" id="signupSrConfirmPassword" placeholder="8+ characters required" aria-label="8+ characters required" required minlength="8" data-hs-toggle-password-options='{
+                  <input type="password" class="js-toggle-password form-control form-control-lg" name="confirm"  placeholder="8+ characters required" aria-label="8+ characters required" required minlength="8" data-hs-toggle-password-options='{
                            "target": [".js-toggle-password-target-1", ".js-toggle-password-target-2"],
                            "defaultClass": "bi-eye-slash",
                            "showClass": "bi-eye",
@@ -374,11 +374,9 @@ if (isset($_POST['signup'])) {
               <!-- End Form Check -->
 
               <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary btn-lg">Create an account</button>
+                <button type="submit" name="signup" class="btn btn-primary btn-lg"> Buat Akun Baru</button>
 
-                <button type="submit" class="btn btn-link">
-                  or Start your 30-day trial <i class="bu-chevron-right"></i>
-                </button>
+                
               </div>
             </form>
             <!-- End Form -->
