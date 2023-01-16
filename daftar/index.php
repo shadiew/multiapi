@@ -49,7 +49,7 @@ if (isset($_POST['signup'])) {
       $headers .= "Content-type: text/html\r\n";
       $send = mail($to, $subject, $msg, $headers);
       if ($send == true) {
-        header("Location: $cfg_baseurl/login/verification.php");
+        header("Location: $cfg_baseurl/aktivasi");
       } else {
         $msg_type = "error";
         $msg_content = "<script>swal('Error!', 'Error system (1).', 'error');</script><b>Failed:</b> Error system (1).";
@@ -276,7 +276,7 @@ if (isset($_POST['signup'])) {
         <div class="col-lg-6 d-flex justify-content-center align-items-center min-vh-lg-100">
           <div class="w-100 content-space-t-4 content-space-t-lg-2 content-space-b-1" style="max-width: 25rem;">
             <!-- Form -->
-            <form class="js-validate needs-validation" method="POST">
+            <form  method="POST">
               <div class="text-center">
                 <div class="mb-5">
                   <h1 class="display-5">Buat Akun Baru</h1>
