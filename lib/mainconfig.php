@@ -4,10 +4,9 @@ error_reporting(0);
 //data
 require("config.php");
 
-//proper installation checker
-if ($cfg_baseurl == "enter_base_url") {
-    header('Location: installer');
-}
+
+
+
 
 $cfg_mt = 0; // Maintenance? 1 = yes 0 = no
 if ($cfg_mt == 1) {
