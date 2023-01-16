@@ -42,7 +42,7 @@ $time = date("H:i:s");
 require("database.php");
 require("function.php");
 
-// TRIPAY
+// TRIPAY Payment Settings
 $tripay_merchant_code = "T12594";
 $tripay_private_key = "LeRfh-TI9j9-cp0ny-IrZlG-Y7QsR";
 $tripay_api_key = "oqVK5ycfaZ4xn7Zgmk68lQAdNt9wy3GE2cWfcML4";
