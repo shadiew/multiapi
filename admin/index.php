@@ -365,14 +365,14 @@ if ($cfg_mt == 1) {
     </section>
 </div>
 
-            <footer>
+<footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
+                        <p><?php echo date("Y"); ?> &copy; <?php echo $data_settings['web_copyright']; ?></p>
                     </div>
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="https://saugi.me">Saugi</a></p>
+                        <p>Web Dev <span class="text-danger"><i class="bi bi-code"></i></span> by <a
+                                href="https://softwarepedia.my.id">Softwarepedia</a></p>
                     </div>
                 </div>
             </footer>
