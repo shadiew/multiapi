@@ -72,6 +72,7 @@ if (isset($_POST['login'])) {
    <link rel="stylesheet" href="assets/css/responsive.css">
    <?php echo $data_settings['seo_meta']; ?>
    <?php echo $data_settings['seo_analytics']; ?>
+
 </head>
 
 <body>
@@ -97,38 +98,23 @@ if (isset($_POST['login'])) {
                <div class="col-md-2 d-flex align-items-center">
                   <div class="logo">
                      <a href="index2.html">
-                        <img src="assets/img/logo-2.png" alt="">
+                        <img src="<?php echo $data_settings['link_logo']; ?>" alt="Logo <?php echo $data_settings['web_name']; ?>">
                      </a>
                   </div>
                </div>
                <div class="col-md-10">
-                  <div class="download-btn float-right"> <a href="#" class="orange">Download</a>
+                  <div class="download-btn float-right"> <a href="../daftar" class="orange">Daftar</a>
                   </div>
                   <div class="main-menu float-right">
                      <nav>
                         <ul>
-                           <li class="dropdown"><a href="#" data-scroll-nav="0">Home</a>
-                              <ul>
-                                 <li><a href="index.html">Home One</a></li>
-                                 <li><a href="index2.html">Home Two</a></li>
-                                 <li><a href="index3.html">Home Three</a></li>
-                                 <li><a href="index4.html">Apps Landing </a></li>
-                              </ul>
-                           </li>
+                        <li><a href="<?php echo $cfg_baseurl; ?>" >Beranda</a>
                            <li><a href="#" data-scroll-nav="1">Features</a>
                            </li>
-                           <li><a href="#" data-scroll-nav="2">Overview</a>
-                           </li>
-                           <li><a href="#" data-scroll-nav="3">Pricing</a>
-                           </li>
+                           
                            <li><a href="#" data-scroll-nav="4">FAQ</a>
                            </li> 
-                           <li class="dropdown"><a href="#" data-scroll-nav="0">Blog</a>
-                              <ul>
-                                 <li><a href="blog.html">Blog Page</a></li>
-                                 <li><a href="single-blog.html">Single Blog</a></li>
-                              </ul>
-                           </li>
+                           
                         </ul>
                      </nav>
                   </div>
@@ -145,8 +131,10 @@ if (isset($_POST['login'])) {
             <div class="row">
                <div class="col-md-8 offset-md-2 text-center">
                   <div class="hero-content">
-                     <h3>Easy to build landing</h3>
-                     <p>See all your relevant tracked data at the glance in one place. With the new daily view you can easily review</p> <a href="#" class="hero-btn orange">Try it Free for 30 Days</a>
+                     <h3><?php echo $data_settings['web_slogan']; ?></h3>
+                     <p>
+                        Menyediakan layanan jasa tambah follower, like views, subscriber, berbagai macam jenis sosial media
+                     </p> <a href="../login" class="hero-btn orange">Login/Signup</a>
                      <a href="#" class="hero-btn-2nd">Version 2.0 ∙ Release Notes</a>
                      <img src="assets/img/hero2-single.png" alt="">
                   </div>
@@ -162,7 +150,7 @@ if (isset($_POST['login'])) {
             <div class="row">
                <div class="col-md-8 offset-md-2">
                   <div class="section-title m-b-50">
-                     <h2>Focus on your work our app remember and track </h2>
+                     <h2>Layanan dan Pelayanan Terbaik di Indonesia</h2>
                   </div>
                </div>
             </div>
@@ -175,8 +163,8 @@ if (isset($_POST['login'])) {
                            <div class="feature-icon">
                               <img src="assets/img/icon-img1.png" alt="">
                            </div>
-                           <h4>Automatic backups</h4>
-                           <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection.</p>
+                           <h4>100% Aman</h4>
+                           <p>Akun Sosial media Anda kami jamin 100% aman karena tanpa membutuhkan password.</p>
                         </div>
                      </div>
                      <!--Single Feature Box-->
@@ -186,8 +174,8 @@ if (isset($_POST['login'])) {
                            <div class="feature-icon">
                               <img src="assets/img/icon-img2.png" alt="">
                            </div>
-                           <h4>Best Privacy for document</h4>
-                           <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection.</p>
+                           <h4>Pelayanan Terbaik</h4>
+                           <p>Lebih dari 6 CS yang siap membantu menyelesaikan masalah kamu</p>
                         </div>
                      </div>
                      <!--Single Feature Box-->
@@ -197,8 +185,8 @@ if (isset($_POST['login'])) {
                            <div class="feature-icon">
                               <img src="assets/img/icon-img3.png" alt="">
                            </div>
-                           <h4>Easily manage works.</h4>
-                           <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection.</p>
+                           <h4>Tanpa Ribet</h4>
+                           <p>Layanan dan produk dikerjakan oleh otomatis oleh sistem server kami 1x24 jam aktif</p>
                         </div>
                      </div>
                      <!--Single Feature Box-->
@@ -208,135 +196,17 @@ if (isset($_POST['login'])) {
                            <div class="feature-icon">
                               <img src="assets/img/icon-img4.png" alt="">
                            </div>
-                           <h4>Works completely offline</h4>
-                           <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection.</p>
+                           <h4>Pembayaran Mudah</h4>
+                           <p>Kami menyediakan berbagai metode pembayaran mulai dari bank transfer hingga ewallet</p>
                         </div>
                      </div>
                      <!--Single Feature Box-->
                   </div>
                </div>
             </div>
-            <!--Call To Action -->
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="cta-box home-2">
-                     <div class="row">
-                        <div class="col-md-8">
-                           <h2>Start your <span>30-days</span> Free Trial today</h2>
-                        </div>
-                        <div class="col-md-4"> <a href="#" class="cta-btn orange">Try It Free For 30 Days</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!--Call To Action -->
          </div>
       </div>
       <!-- Feature Area End!-->
-
-      <!-- Overvew List Area Start-->
-      <div class="overvew-area-home-2" data-scroll-index="2">
-         <div class="container">
-            <div class="signle-overview one">
-               <div class="row">
-                  <div class="col-md-6">
-                     <div class="overview-content-home2">
-                        <div class="section-title text-left">
-                           <h2>A faster, easier to create organized lists</h2>
-                           <p>Once you open your working file or application, our app will start the timer for you automatically.</p>
-                        </div>
-                        <div class="overview-lists">
-                           <div class="single-list">
-                              <img src="assets/img/overview-list1.png" alt="">
-                              <div class="list-content">
-                                 <h3> Offline browsing</h3>
-                                 <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection.</p>
-                              </div>
-                           </div>
-                           <div class="single-list">
-                              <img src="assets/img/overview-list2.png" alt="">
-                              <div class="list-content">
-                                 <h3> Manage works</h3>
-                                 <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection.</p>
-                              </div>
-                           </div>
-                           <div class="single-list">
-                              <img src="assets/img/overview-list3.png" alt="">
-                              <div class="list-content">
-                                 <h3> backups document</h3>
-                                 <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection.</p>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="overview-image wide-box">
-                        <img src="assets/img/overview-1nd.png" alt="">
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- Overvew List Area End!-->
-
-      <!-- video overview Area start-->
-      <div class="video-overview home-2">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="popup-video text-center">
-                     <a class="mfp-iframe video-play-button" href="https://www.youtube.com/watch?v=t5wbuS9Wek4"> <i class="fa fa-play"></i>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- video overview Area End!-->
-
-      <!-- Overvew Area Start-->
-      <div class="overvew-area-home-2">
-         <div class="container">
-            <div class="signle-overview two">
-               <div class="row">
-                  <div class="col-md-6">
-                     <div class="overview-content">
-                        <div class="overview-icon"> <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                        </div>
-                        <h2>Quick messaging with clients</h2>
-                        <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection. In addition to Auto-tracking you can still use the traditional.</p>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="overview-image">
-                        <img src="assets/img/overview-3nd.png" alt="">
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="signle-overview two pd-70">
-               <div class="row">
-                  <div class="col-md-6">
-                     <div class="overview-image">
-                        <img src="assets/img/overview-2nd.png" alt="">
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="overview-content">
-                        <div class="overview-icon"> <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        </div>
-                        <h2>Easily manage <br> your works</h2>
-                        <p>It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection. In addition to Auto-tracking you can still use the traditional.</p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- Overvew Area End!-->
 
       <!-- Testimonial Area Start-->
       <div class="testimonail-area home-2">
@@ -419,67 +289,7 @@ if (isset($_POST['login'])) {
       </div>
       <!-- Testimonial Area End!-->
 
-      <!-- pricing Area Start-->
-      <div class="pricing-area home-2" data-scroll-index="3">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-7">
-                  <div class="section-title text-left">
-                     <h3><i class="fa fa-usd" aria-hidden="true"></i> Our Pricing Plans</h3>
-                     <h2>Choose the best pricing for start your journey</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <!--Single Pricing Table-->
-               <div class="col-md-4">
-                  <div class="single-pricing-table">
-                     <h4>Free</h4>
-                     <h2>$0<span>/mo</span></h2>
-                     <ul>
-                        <li>Unlimited Pages</li>
-                        <li>All Team Members</li>
-                        <li>Unlimited Leads</li>
-                        <li>Unlimited Page Views</li>
-                        <li>Export in HTML/CSS</li>
-                     </ul> <a href="#" class="price-btn">Get Started</a>
-                  </div>
-               </div>
-               <!--//Single Pricing Table-->
-               <!--Single Pricing Table-->
-               <div class="col-md-4">
-                  <div class="single-pricing-table popular">
-                     <h4>Popular</h4>
-                     <h2>$20<span>/mo</span></h2>
-                     <ul>
-                        <li>Unlimited Pages</li>
-                        <li>All Team Members</li>
-                        <li>Unlimited Leads</li>
-                        <li>Unlimited Page Views</li>
-                        <li>Export in HTML/CSS</li>
-                     </ul> <a href="#" class="price-btn orange">Get Started</a>
-                  </div>
-               </div>
-               <!--//Single Pricing Table-->
-               <!--Single Pricing Table-->
-               <div class="col-md-4">
-                  <div class="single-pricing-table">
-                     <h4>Professional</h4>
-                     <h2>$30<span>/mo</span></h2>
-                     <ul>
-                        <li>Unlimited Pages</li>
-                        <li>All Team Members</li>
-                        <li>Unlimited Leads</li>
-                        <li>Unlimited Page Views</li>
-                        <li>Export in HTML/CSS</li>
-                     </ul> <a href="#" class="price-btn">Get Started</a>
-                  </div>
-                  <!--//Single Pricing Table-->
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- pricing Area End!-->
+      
 
       <!-- FAQ & Conatct Area Starts-->
       <div class="faq-contact-area home-2" data-scroll-index="4">
@@ -487,7 +297,7 @@ if (isset($_POST['login'])) {
             <div class="row">
                <div class="col-md-12">
                   <div class="section-title">
-                     <h2>Frequently Asked Qutions</h2>
+                     <h2>Pertanyaan Umum</h2>
                   </div>
                </div>
             </div>
@@ -496,46 +306,46 @@ if (isset($_POST['login'])) {
                   <div id="accordion" class=" style-2">
                      <div class="card">
                         <div class="card-header"> <a class="card-link" data-toggle="collapse" href="#Xprosik">
-                                  What Is Xprosik?
+                        Apa itu <?php echo $data_settings['web_name']; ?>?
                                   <i class="fa fa-angle-down" aria-hidden="true"></i>
                                   <i class="fa fa-angle-up" aria-hidden="true"></i>
                                 </a>
                         </div>
                         <div id="Xprosik" class="collapse show" data-parent="#accordion">
-                           <div class="card-body">It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection. In addition to Auto-tracking you can still use the traditional.</div>
+                           <div class="card-body"><?php echo $data_settings['web_name']; ?> adalah sebuah platform bisnis yang menyediakan berbagai layanan social media marketing yang bergerak terutama di Indonesia. Dengan bergabung bersama kami, Anda dapat menjadi penyedia jasa social media atau reseller social media seperti jasa penambah Followers, Likes, dll.</div>
                         </div>
                      </div>
                      <div class="card">
                         <div class="card-header"> <a class="collapsed card-link" data-toggle="collapse" href="#purchase">
-                                How to purchase?
+                        Bagaimana cara mendaftar <?php echo $data_settings['web_name']; ?> ?
                                 <i class="fa fa-angle-down" aria-hidden="true"></i>
                                 <i class="fa fa-angle-up" aria-hidden="true"></i>
                               </a>
                         </div>
                         <div id="purchase" class="collapse" data-parent="#accordion">
-                           <div class="card-body">It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection. In addition to Auto-tracking you can still use the traditional.</div>
+                           <div class="card-body">Anda dapat langsung mendaftar di website Irvan Kede pada halaman Daftar</div>
                         </div>
                      </div>
                      <div class="card">
                         <div class="card-header"> <a class="collapsed card-link" data-toggle="collapse" href="#free">
-                                  Can i use for free ?
+                        Bagaimana cara membuat pesanan ?
                                   <i class="fa fa-angle-down" aria-hidden="true"></i>
                                   <i class="fa fa-angle-up" aria-hidden="true"></i>
                                 </a>
                         </div>
                         <div id="free" class="collapse" data-parent="#accordion">
-                           <div class="card-body">It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection. In addition to Auto-tracking you can still use the traditional.</div>
+                           <div class="card-body">Untuk membuat pesanan sangatlah mudah, Anda hanya perlu masuk terlebih dahulu ke akun Anda dan menuju halaman pemesanan dengan mengklik menu yang sudah tersedia. Selain itu Anda juga dapat melakukan pemesanan melalui request API.</div>
                         </div>
                      </div>
                      <div class="card">
                         <div class="card-header"> <a class="collapsed card-link" data-toggle="collapse" href="#refund">
-                                  Hot to  get refund ?
+                        Bagaimana cara melakukan deposit/isi saldo ?
                                   <i class="fa fa-angle-down" aria-hidden="true"></i>
                                   <i class="fa fa-angle-up" aria-hidden="true"></i>
                                 </a>
                         </div>
                         <div id="refund" class="collapse" data-parent="#accordion">
-                           <div class="card-body">It doesn't matter if you are in an office or on an airplane. You will never lose a second just because there is no internet connection. In addition to Auto-tracking you can still use the traditional.</div>
+                           <div class="card-body">Untuk melakukan deposit/isi saldo, Anda hanya perlu masuk terlebih dahulu ke akun Anda dan menuju halaman deposit dengan mengklik menu yang sudah tersedia. Kami menyediakan deposit melalui bank dan pulsa.</div>
                         </div>
                      </div>
                   </div>
@@ -568,22 +378,12 @@ if (isset($_POST['login'])) {
       <footer class="home-2">
          <div class="container">
             <div class="row">
-               <div class="col-md-12">
-                  <div class="cta-box">
-                     <div class="row">
-                        <div class="col-md-8">
-                           <h2>Start your <span>30-days</span> Free Trial today</h2>
-                        </div>
-                        <div class="col-md-4"> <a href="#" class="cta-btn orange">Get Started Now</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+               
                <div class="row">
                   <div class="col-md-8 offset-md-2">
                      <div class="subscribe-box">
                         <div class="section-title">
-                           <h2>Subscribe to our newsletter for fast updates & news</h2>
+                           
                         </div>
                         <form class="subscribe-form" action="#" method="post">
                            <div class="form-group">
