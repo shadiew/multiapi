@@ -52,10 +52,12 @@ if (isset($_POST['login'])) {
    <!-- Meta Tags -->
    <meta charset="utf-8">
    <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <meta name="author" content="themesholder">
+   <meta name="author" content="<?php echo $data_settings['author']; ?>">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <!-- Page Title -->
    <title><?php echo $data_settings['web_title']; ?></title>
+   <meta name="description" content="<?php echo $data_settings['web_description']; ?>" />
+   <meta name="keywords" content="<?php echo $data_settings['seo_keywords']; ?>" />
    <!-- Favicon Icon -->
    <link rel="shortcut icon" type="image/png" href="<?php echo $data_settings['link_fav']; ?>">
    <!-- Stylesheets -->
@@ -68,6 +70,8 @@ if (isset($_POST['login'])) {
    <link rel="stylesheet" href="assets/fonts/flaticon.css">
    <link rel="stylesheet" href="assets/css/style.css">
    <link rel="stylesheet" href="assets/css/responsive.css">
+   <?php echo $data_settings['seo_meta']; ?>
+   <?php echo $data_settings['seo_analytics']; ?>
 </head>
 
 <body>
