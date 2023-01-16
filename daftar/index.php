@@ -57,10 +57,10 @@ if (isset($_POST['signup'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Halaman Pendaftaran</title>
+  <title><?php echo $data_settings['web_name']; ?> | Halaman Register</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="shortcut icon" href="<?php echo $data_settings['link_fav']; ?>">
 
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -73,6 +73,11 @@ if (isset($_POST['signup'])) {
 
   <link rel="preload" href="../themes/assets/css/theme.min.css" data-hs-appearance="default" as="style">
   <link rel="preload" href="../themes/assets/css/theme-dark.min.css" data-hs-appearance="dark" as="style">
+
+  <?php echo $data_settings['seo_meta']; ?>
+  <?php echo $data_settings['seo_analytics']; ?>
+  <meta name="description" content="<?php echo $data_settings['web_description']; ?>">
+    <meta name="keywords" content="<?php echo $data_settings['seo_keywords']; ?>">
 
   <style data-hs-appearance-onload-styles>
     *
@@ -178,7 +183,7 @@ if (isset($_POST['signup'])) {
   <!-- ========== HEADER ========== -->
   <header class="position-absolute top-0 start-0 end-0 mt-3 mx-3">
     <div class="d-flex d-lg-none justify-content-between">
-      <a href="./index.html">
+      <a href="<?php echo $cfg_baseurl; ?>">
         <img class="w-100" src="<?php echo $data_settings['link_logo_dark']; ?>" alt="Image Description" data-hs-theme-appearance="default" style="min-width: 7rem; max-width: 7rem;">
         <img class="w-100" src="<?php echo $data_settings['link_logo_dark']; ?>" alt="Image Description" data-hs-theme-appearance="dark" style="min-width: 7rem; max-width: 7rem;">
       </a>
