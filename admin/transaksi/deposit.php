@@ -83,7 +83,7 @@ if (isset($_SESSION['user'])) {
                 </a>
             </li>
             <li
-                class="sidebar-item active ">
+                class="sidebar-item  ">
                 <a href="<?php echo $cfg_baseurl; ?>/admin/user" class='sidebar-link'>
                     <i class="bi bi-people-fill"></i>
                     <span>Data User</span>
@@ -109,12 +109,12 @@ if (isset($_SESSION['user'])) {
                 </ul>
             </li>
             <li
-                class="sidebar-item  has-sub">
+                class="sidebar-item active has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-clock-fill"></i>
                     <span>Transaksi</span>
                 </a>
-                <ul class="submenu ">
+                <ul class="submenu active">
                     <li class="submenu-item ">
                         <a href="<?php echo $cfg_baseurl; ?>/admin/transaksi/deposit">Deposit</a>
                     </li>
